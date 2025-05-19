@@ -1,0 +1,102 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "load-balancer-comparison",
+    "title": "Load Balancer Performance Comparison",
+    "schemaVersion": 37,
+    "version": 1,
+    "panels": [
+      {
+        "title": "Request Count Comparison",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "requests{job='ml_optimized_load_balancer'}",
+            "legendFormat": "ML Load Balancer",
+            "refId": "A"
+          },
+          {
+            "expr": "requests{job='traditional_load_balancer'}",
+            "legendFormat": "Traditional Load Balancer",
+            "refId": "B"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 }
+      },
+      {
+        "title": "CPU Usage Comparison",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "cpu{job='ml_optimized_load_balancer'}",
+            "legendFormat": "ML Load Balancer CPU",
+            "refId": "C"
+          },
+          {
+            "expr": "cpu{job='traditional_load_balancer'}",
+            "legendFormat": "Traditional Load Balancer CPU",
+            "refId": "D"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 }
+      },
+      {
+        "title": "Memory Usage Comparison",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "memory{job='ml_optimized_load_balancer'}",
+            "legendFormat": "ML Load Balancer Memory",
+            "refId": "E"
+          },
+          {
+            "expr": "memory{job='traditional_load_balancer'}",
+            "legendFormat": "Traditional Load Balancer Memory",
+            "refId": "F"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 }
+      },
+      {
+        "title": "Latency Comparison",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "latency{job='ml_optimized_load_balancer'}",
+            "legendFormat": "ML Load Balancer Latency",
+            "refId": "G"
+          },
+          {
+            "expr": "latency{job='traditional_load_balancer'}",
+            "legendFormat": "Traditional Load Balancer Latency",
+            "refId": "H"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 18, "w": 12, "h": 6 }
+      },
+      {
+        "title": "Server Allocation Distribution",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "allocations{job='ml_optimized_load_balancer'}",
+            "legendFormat": "ML Load Balancer",
+            "refId": "I"
+          },
+          {
+            "expr": "allocations{job='traditional_load_balancer'}",
+            "legendFormat": "Traditional Load Balancer",
+            "refId": "J"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 24, "w": 12, "h": 6 }
+      }
+    ],
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timezone": "browser",
+    "refresh": "10s"
+  }
+}
